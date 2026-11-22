@@ -1,0 +1,3 @@
+USE simpro_himsika;
+CREATE TABLE IF NOT EXISTS agenda(id INT AUTO_INCREMENT PRIMARY KEY,proker_id INT,jenis VARCHAR(30),keterangan VARCHAR(255),tanggal DATE,status ENUM('diajukan','disetujui','ditolak') DEFAULT 'diajukan',FOREIGN KEY(proker_id) REFERENCES proker(id) ON DELETE CASCADE);
+CREATE TABLE IF NOT EXISTS notifikasi(id INT AUTO_INCREMENT PRIMARY KEY,user_id INT,pesan VARCHAR(255),link VARCHAR(30),dibaca TINYINT DEFAULT 0,created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE);
